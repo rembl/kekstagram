@@ -1,7 +1,12 @@
-// eslint-disable-next-line no-unused-vars
-const getRandom = (first, second) =>
-  Math.round(Math.random() * Math.abs(second - first)) + Math.min(first, second);
+const getRandPosInt = (first, second) => {
+  if (first < 0 || second < 0) {
+    return;
+  }
+  return Math.round(Math.random() * Math.abs(second - first)) + Math.min(first, second);
+};
 
-// eslint-disable-next-line no-unused-vars
-const stringLengthRight = (myString, maxLength) => (myString.length <= maxLength);
 
+const isStringLengthRight = (myString, maxLength) => (myString.length <= maxLength);
+
+getRandPosInt(10,20);
+isStringLengthRight('hello', 6);

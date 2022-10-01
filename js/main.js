@@ -1,7 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 
-
 const COMMENTS_MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',

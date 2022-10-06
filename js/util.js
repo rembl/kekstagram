@@ -7,7 +7,6 @@ const getRandPosInt = (first, second) => {
 
 const isStringLengthRight = (myString, maxLength) => (myString.length <= maxLength);
 
-
 getRandPosInt(10,20);
 isStringLengthRight('hello', 6);
 

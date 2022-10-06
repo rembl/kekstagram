@@ -5,9 +5,7 @@ const getRandPosInt = (first, second) => {
   return Math.round(Math.random() * Math.abs(second - first)) + Math.min(first, second);
 };
 
-
 const isStringLengthRight = (myString, maxLength) => (myString.length <= maxLength);
-
 
 getRandPosInt(10,20);
 isStringLengthRight('hello', 6);

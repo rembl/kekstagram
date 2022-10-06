@@ -2,7 +2,6 @@ import {v4 as uuidv4} from 'uuid';
 import {faker} from '@faker-js/faker';
 import {getRandPosInt, isStringLengthRight} from './util.js';
 
-
 const COMMENTS_MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',

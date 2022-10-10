@@ -1,5 +1,5 @@
-import {getPhotos, getComments} from './data.js';
+import {mockPhotos, mockComments} from './data.js';
 
-getPhotos();
-getComments();
+mockPhotos();
+mockComments();
 

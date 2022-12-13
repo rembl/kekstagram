@@ -1,4 +1,5 @@
 import {mockPhotos} from './data.js';
+import {viewPicture} from './big_pic.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesFragment = document.createDocumentFragment();
@@ -12,7 +13,9 @@ photos.forEach((photo) => {
   eachPhoto.querySelector('.picture__img').src = url;
   eachPhoto.querySelector('.picture__comments').textContent = comments;
   eachPhoto.querySelector('.picture__likes').textContent = likes;
-
+  eachPhoto.addEventListener('click', () => {
+    viewPicture(photo);
+  });
   picturesFragment.appendChild(eachPhoto);
 });
 

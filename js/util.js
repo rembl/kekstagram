@@ -7,4 +7,6 @@ const getRandPosInt = (first, second) => {
 
 const isStringLengthRight = (myString, maxLength) => (myString.length <= maxLength);
 
-export {getRandPosInt, isStringLengthRight};
+const isEscape = (evt) => evt.key === 'Escape';
+
+export {getRandPosInt, isStringLengthRight, isEscape};

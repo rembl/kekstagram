@@ -1,5 +1,5 @@
-import {faker} from '@faker-js/faker';
-import {getRandPosInt, isStringLengthRight} from './util.js';
+import {faker} from 'https://cdn.skypack.dev/@faker-js/faker';
+import {getRandPosInt} from './util.js';
 
 const COMMENTS_MESSAGE = [
   'Всё отлично!',
@@ -26,7 +26,6 @@ const mockPhotos = () => Array.from({length: 25}).map((value, index) => ({
   comments: mockComments(),
 }));
 
-mockPhotos();
-isStringLengthRight('hello', 6);
+const arrayOfPhotos = mockPhotos();
 
-export {mockPhotos, mockComments};
+export {arrayOfPhotos, mockPhotos};

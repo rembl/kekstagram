@@ -30,4 +30,3 @@ mockPhotos();
 isStringLengthRight('hello', 6);
 
 export {mockPhotos, mockComments};
-

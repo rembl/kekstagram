@@ -22,7 +22,7 @@ function closePicture() {
   document.removeEventListener('keydown', onPopupEscKeydown);
 }
 
-function viewPicture (photo) {
+export function viewPicture (photo) {
   document.querySelector('.big-picture__img').querySelector('img').src = photo.url;
   document.querySelector('.likes-count').textContent = photo.likes;
   document.querySelector('.social__caption').textContent = photo.description;
@@ -68,6 +68,4 @@ function deleteComments () {
   const arrOfCom = document.querySelectorAll('.social__comment');
   Array.from({length:  arrOfCom.length}, () => document.querySelector('.social__comment').remove());
 }
-
-export {viewPicture};
 

@@ -18,14 +18,10 @@ const mockComments = () => Array.from({length: getRandPosInt(0, 100)}).map((valu
 }));
 
 
-const mockPhotos = () => Array.from({length: 25}).map((value, index) => ({
+export const mockPhotos = () => Array.from({length: 25}).map((value, index) => ({
   id: index + 1,
   url: `photos/${index + 1}.jpg`,
   description: faker.lorem.sentence(),
   likes: getRandPosInt(15, 200),
   comments: mockComments(),
 }));
-
-const arrayOfPhotos = mockPhotos();
-
-export {arrayOfPhotos, mockPhotos};

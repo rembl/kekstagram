@@ -23,6 +23,7 @@ export const showDownloadErrorMessage = () => {
   body.appendChild(errorDiv);
 };
 
+export const FILE_TYPES = ['jpg', 'jpeg', 'png','gif'];
 export const HASHTAG_REGEX = /(^#[0-9А-Яа-яЁёA-Za-z]{1,19}$)|(^\s*$)/;
 export const HASHTAG_NUM = 5;
 export const COMM_LENGTH = 140;

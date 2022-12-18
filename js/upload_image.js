@@ -6,7 +6,8 @@ import {
   SCALE_STEP,
   EFFECTS,
   HASHTAG_NUM,
-  COMM_LENGTH
+  COMM_LENGTH,
+  FILE_TYPES
 } from './util.js';
 import { sendDataToServer } from './server.js';
 
@@ -18,6 +19,8 @@ const textHashtags = imageUploadForm.querySelector('.text__hashtags');
 const textDescription = imageUploadForm.querySelector('.text__description');
 const imageUploadSubmit = imageUploadForm.querySelector('.img-upload__submit');
 const uploadCancel = document.querySelector('#upload-cancel');
+const fileInput = document.querySelector('input[type=file]');
+const imgUploadPreview = document.querySelector('.img-upload__preview').querySelector('img');
 
 const effectLevelSlider = imageUploadOverlay.querySelector('.effect-level__slider');
 const effectLevelValue = imageUploadOverlay.querySelector('.effect-level__value');
@@ -32,6 +35,15 @@ const error = document.querySelector('#error').content.querySelector('.error');
 const successButton = success.querySelector('.success__button');
 const errorButton = error.querySelector('.error__button');
 let currentEffect;
+
+
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  const name = file.name.toLowerCase();
+  if (FILE_TYPES.some((it) => name.endsWith(it))) {
+    imgUploadPreview.src = URL.createObjectURL(file);
+  }
+});
 
 const checkHashtagsNumber = (value) => {
   const separatedHashtags = value.split(' ');
@@ -121,7 +133,6 @@ const onChangeEffects = (evt) => {
     start: max,
     step,
   });
-  imageUploadPreview.className = 'img-upload__preview';
   const effectsPreview = evt.target.parentNode.querySelector('.effects__preview');
   imageUploadPreview.classList.add(effectsPreview.getAttribute('class').split('  ')[1]);
 };
@@ -241,7 +252,6 @@ uploadFile.addEventListener('change', () => {
     }
   );
   currentEffect = 'effect-none';
-  imageUploadPreview.className = 'img-upload__preview';
   imageUploadPreview.classList.add('effects__preview--none');
   imageUploadForm.addEventListener('change', onChangeEffects);
   effectLevelSlider.noUiSlider.on('update', onSliderUpdate);

@@ -171,7 +171,18 @@ function onEscKeydownError (evt) {
   if (isEscape(evt.key)) {closeSuccessErrorMessages();}
 }
 
-const onFormSubmit = (evt) => {
+const closeOverlay = () => {
+  imageUploadForm.reset();
+  imageUploadOverlay.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+  scaleControlSmaller.removeEventListener('click', onScaleControlSmallerClick);
+  scaleControlBigger.removeEventListener('click', onScaleControlBiggerClick);
+  imageUploadForm.removeEventListener('change', onChangeEffects);
+  document.removeEventListener('keydown', onEscKeydown);
+  effectLevelSlider.noUiSlider.destroy();
+};
+
+imageUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (isValid) {
@@ -196,24 +207,7 @@ const onFormSubmit = (evt) => {
       new FormData(evt.target),
     );
   }
-};
-
-function closeOverlay () {
-  imageUploadForm.reset();
-  imageUploadOverlay.classList.add('hidden');
-  document.body.classList.remove('modal-open');
-  scaleControlSmaller.removeEventListener('click', onScaleControlSmallerClick);
-  scaleControlBigger.removeEventListener('click', onScaleControlBiggerClick);
-  imageUploadForm.removeEventListener('change', onChangeEffects);
-  document.removeEventListener('keydown', onEscKeydown);
-  imageUploadForm.removeEventListener('submit', onFormSubmit);
-  imageUploadOverlay.classList.add('hidden');
-  document.body.classList.remove('modal-open');
-  effectLevelSlider.noUiSlider.destroy();
-  pristine.destroy();
-}
-
-imageUploadForm.addEventListener('submit', onFormSubmit);
+});
 
 function onEscKeydown (evt)  {
   if (isEscape(evt.key) && evt.target !== textHashtags && evt.target !== textDescription && !body.contains(error)) {

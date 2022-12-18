@@ -3,5 +3,5 @@ import {getDataFromServer} from './server.js';
 import {showDownloadErrorMessage} from './util.js';
 import './upload_image.js';
 
-getDataFromServer((posts) => {render(posts);},
+getDataFromServer((photos) => {render(photos);},
   () => {showDownloadErrorMessage();});

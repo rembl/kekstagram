@@ -77,13 +77,41 @@ export const EFFECTS = {
   },
 };
 
-export const getRandPosInt = (first, second) => {
+const getRandPosInt = (first, second) => {
   if (first < 0 || second < 0) {
     return;
   }
   return Math.round(Math.random() * Math.abs(second - first)) + Math.min(first, second);
 };
 
-export const isStringLengthRight = (myString, maxLength) => (myString.length <= maxLength);
-
 export const isEscape = (evt) => evt.key === 'Escape';
+
+export function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+export function throttle (callback, delayBetweenFrames) {
+  let lastTime = 0;
+
+  return (...rest) => {
+    const now = new Date();
+    if (now - lastTime >= delayBetweenFrames) {
+      callback.apply(this, rest);
+      lastTime = now;
+    }
+  };
+}
+
+export function getRandomArrayElement(array) {
+  const newElement = getRandomElement(array);
+  array.splice(array.indexOf(newElement), 1);
+  return newElement;
+}
+
+export function getRandomElement(array) {
+  return array[getRandPosInt(0, array.length - 1)];
+}

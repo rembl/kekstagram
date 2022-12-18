@@ -4,8 +4,8 @@ export const getDataFromServer = (onSuccess, onFail) => {
   fetch(SERVER_LOAD_LINK)
     .then((response) => {
       if (response.ok) {
-        response.json().then((posts) => {
-          onSuccess(posts);
+        response.json().then((photos) => {
+          onSuccess(photos);
         });
       } else {
         throw new Error('Not OK response');
